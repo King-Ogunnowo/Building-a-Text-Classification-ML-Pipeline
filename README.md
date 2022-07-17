@@ -20,8 +20,18 @@ To use these scripts, the following must be installed on your local machine:
  * DVC (Data Version Control, in case you wish to build an ML pipeline and run scripts like DAGs)
  You can easily install these by running this in your terminal ```pip install -r requirements.txt```
  
- 3. How to use
+ 
+ ## 3. How to use
  * install requirements
  * run scripts from Terminal with command line statements. With the cleaning script as an example, it can be run with this line of command 
  ```python cleaning.py --data_path "data_artifacts/training_set_new.csv" --text_column "column_name" --target_column "column_name"```
  * if unsure about the kind of arguements to pass in command, run ```python {script_name} --help```
+
+ 
+ ## 4. Building reproducible pipeline with DVC 
+ The following steps can help you build a reproducible pipeline of these scripts with DVC 
+ * run ```git init```
+ * run ```dvc init```
+ * run ```dvc remote add {name of remote folder} {path to remote folder}``` (optional step, but advised in case you want to experiment with pipeline versions). See [here](https://dvc.org/doc/command-reference/remote#:~:text=What%20is%20a%20%22local%20remote,for%20DVC%20projectsDVC%20projects.) for more details
+ * 
+ 
