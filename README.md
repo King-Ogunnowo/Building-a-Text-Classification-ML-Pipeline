@@ -33,5 +33,7 @@ To use these scripts, the following must be installed on your local machine:
  * run ```git init```
  * run ```dvc init```
  * run ```dvc remote add {name of remote folder} {path to remote folder}``` (optional step, but advised in case you want to experiment with pipeline versions). See [here](https://dvc.org/doc/command-reference/remote#:~:text=What%20is%20a%20%22local%20remote,for%20DVC%20projectsDVC%20projects.) for more details
- * 
+ * add scripts as stages to the pipeline with either of the following syntax: 
+ ```dvc stage add -n <name of stage> -d <dependency(ies)> -o <output(s)> command <python script.py --parameters "parameters">```
+ <center> -or- </center>
  
