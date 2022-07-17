@@ -17,5 +17,11 @@ To use these scripts, the following must be installed on your local machine:
  * logging
 
  Optional packages include:
- * DVC (Data Version Control, in case you wish to build an ML pipeline)
+ * DVC (Data Version Control, in case you wish to build an ML pipeline and run scripts like DAGs)
  You can easily install these by running this in your terminal ```pip install -r requirements.txt```
+ 
+ 3. How to use
+ * install requirements
+ * run scripts from Terminal with command line statements. With the cleaning script as an example, it can be run with this line of command 
+ ```python cleaning.py --data_path "data_artifacts/training_set_new.csv" --text_column "column_name" --target_column "column_name"```
+ * if unsure about the kind of arguements to pass in command, run ```python {script_name} --help```
