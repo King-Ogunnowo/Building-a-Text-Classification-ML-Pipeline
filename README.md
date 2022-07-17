@@ -1,4 +1,4 @@
-# Building-a-Financial-Text-Classifier
+# Building-a-Text-Classification-Pipeline
 ## 1. Introduction 
 This repository contains scripts that can be used to build a financial text classifier. 
 <p>Financial text classification is an application of text classification that can amonth other things be used to identify the intent/ purpose of a transaction<br>
@@ -36,4 +36,7 @@ To use these scripts, the following must be installed on your local machine:
  * add scripts as stages to the pipeline with either of the following syntax: 
  ```dvc stage add -n <name of stage> -d <dependency(ies)> -o <output(s)> command <python script.py --parameters "parameters">```
  <center> -or- </center>
+ ```dvc run -n <name of stage> -d <dependency(ies)> -o <output(s)> command <python script.py --parameters "parameters">``` While running each stage, it is automatically added by DVC into a dvc.yaml file
+ 
+ 
  
