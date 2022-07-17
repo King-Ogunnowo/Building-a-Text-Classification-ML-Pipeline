@@ -36,7 +36,7 @@ To use these scripts, the following must be installed on your local machine:
  * add scripts as stages to the pipeline with either of the following syntax: 
  ```dvc stage add -n <name of stage> -d <dependency(ies)> -o <output(s)> command <python script.py --parameters "parameters">```
  <center> -or- </center>
- ```dvc run -n <name of stage> -d <dependency(ies)> -o <output(s)> command <python script.py --parameters "parameters">``` While running each stage, it is automatically added by DVC into a dvc.yaml file
+ ```dvc run -n <name of stage> -d <dependency(ies)> -o <output(s)> command <python script.py --parameters "parameters">``` While running each stage, it is automatically added by DVC into a dvc.yaml file.
  
  
  
