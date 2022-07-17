@@ -1,0 +1,19 @@
+stages:
+  cleaning:
+    cmd: python cleaning.py --data_path data_artifacts/spam_mail_data.csv --text_column
+      Message --target_column Category
+    deps:
+    - cleaning.py
+    - data_artifacts/spam_mail_data.csv
+    outs:
+    - data_artifacts/cleaned_data.csv
+    - dictionary/id_to_value.pkl
+    - dictionary/value_to_id.pkl
+  exploration:
+    cmd: python exploration.py --data_path data_artifacts/cleaned_data.csv --text_column
+      Message --target_column Category
+    deps:
+    - data_artifacts/cleaned_data.csv
+    - exploration.py
+    outs:
+    - eda_results/class_distribution_chart.png

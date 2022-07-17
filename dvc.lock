@@ -1,0 +1,70 @@
+schema: '2.0'
+stages:
+  cleaning:
+    cmd: python cleaning.py --data_path data_artifacts/spam_mail_data.csv --text_column
+      Message --target_column Category
+    deps:
+    - path: cleaning.py
+      md5: 91ca0d11565f227a38e052d1a73789d2
+      size: 3185
+    - path: data_artifacts/spam_mail_data.csv
+      md5: 4566fe81ccd7961063e393a99e8ec2f1
+      size: 485702
+    outs:
+    - path: data_artifacts/cleaned_data.csv
+      md5: e230e1b26cb10c52ca6439ab5bd23a95
+      size: 758158
+    - path: dictionary/id_to_value.pkl
+      md5: ee04a76437755aaf4d53ca3007945b48
+      size: 33
+    - path: dictionary/value_to_id.pkl
+      md5: ee04a76437755aaf4d53ca3007945b48
+      size: 33
+  exploration:
+    cmd: python exploration.py --data_path data_artifacts/cleaned_data.csv --text_column
+      Message --target_column Category
+    deps:
+    - path: data_artifacts/cleaned_data.csv
+      md5: e230e1b26cb10c52ca6439ab5bd23a95
+      size: 758158
+    - path: exploration.py
+      md5: 73ff56e8c76d0d40dab12c16f08beb6d
+      size: 2390
+    outs:
+    - path: eda_results/class_distribution_chart.png
+      md5: 11e1d0ca87ccbe028b7b64eafb3c6d15
+      size: 15685
+  train:
+    cmd: python train.py --data_path data_artifacts/cleaned_data.csv --independent_feature
+      Message --dependent_feature Category_id --test_size 0.2
+    deps:
+    - path: data_artifacts/cleaned_data.csv
+      md5: e230e1b26cb10c52ca6439ab5bd23a95
+      size: 758158
+    - path: train.py
+      md5: d66a164f5bcc0f044ed0ebe68a561111
+      size: 2852
+    outs:
+    - path: data_artifacts/test_set.csv
+      md5: 2e7eb49881e0da82f6840faf47e8c9c8
+      size: 97293
+    - path: model/model_pipeline.pkl
+      md5: 309c39be1cbe0de11355682a7244b0bd
+      size: 738647
+  test:
+    cmd: python test.py --test_set data_artifacts/test_set.csv --independent_feature
+      Message --dependent_feature Category_id
+    deps:
+    - path: data_artifacts/test_set.csv
+      md5: 2e7eb49881e0da82f6840faf47e8c9c8
+      size: 97293
+    - path: test.py
+      md5: 6826b6a440fff868d02b7f44fa698c99
+      size: 3128
+    outs:
+    - path: results/classification_reports.png
+      md5: a13b878211dbcf9c74a4da82c0269bd4
+      size: 25650
+    - path: results/confusion_matrix.png
+      md5: 5dddc91fc7414730271642e3b20b238f
+      size: 20245
