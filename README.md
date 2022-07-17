@@ -7,4 +7,15 @@ This repository contains scripts that can be used to build a financial text clas
  
 ## 2. Requirements
 To use these scripts, the following must be installed on your local machine:
-  * scikit-learn
+ * scikit-learn
+ * pandas
+ * numpy
+ * seaborn
+ * matplotlib
+ * argparse
+ * wordcloud
+ * logging
+
+ Optional packages include:
+ * DVC (Data Version Control, in case you wish to build an ML pipeline)
+ You can easily install these by running this in your terminal ```pip install -r requirements.txt```
